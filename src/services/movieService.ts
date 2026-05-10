@@ -11,7 +11,6 @@ const API_KEY = import.meta.env.VITE_TMDB_TOKEN;
 const BASE_URL = "https://api.themoviedb.org/3";
 
 export const fetchMovies = async (query: string): Promise<Movie[]> => {
-  console.log("Мій токен з GitHub Secrets:", API_KEY);
   const config = {
     params: {
       query: query,
