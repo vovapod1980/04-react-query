@@ -13,4 +13,5 @@ export default defineConfig({
   build: {
     sourcemap: true,
   },
+  base: "/04-react-query/",
 });
