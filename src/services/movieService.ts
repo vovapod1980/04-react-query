@@ -10,12 +10,16 @@ export interface TMDBResponse {
 const API_KEY = import.meta.env.VITE_TMDB_TOKEN;
 const BASE_URL = "https://api.themoviedb.org/3";
 
-export const fetchMovies = async (query: string): Promise<Movie[]> => {
+export const fetchMovies = async (
+  query: string,
+  page: number,
+): Promise<TMDBResponse> => {
   const config = {
     params: {
       query: query,
       include_adult: false,
       language: "uk-UA",
+      page: page,
     },
     headers: {
       Authorization: `Bearer ${API_KEY}`,
@@ -27,5 +31,5 @@ export const fetchMovies = async (query: string): Promise<Movie[]> => {
     `${BASE_URL}/search/movie`,
     config,
   );
-  return response.data.results;
+  return response.data;
 };
